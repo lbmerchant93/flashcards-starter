@@ -33,6 +33,23 @@ describe('Round', function() {
     expect(round.returnCurrentCard()).to.deep.equal(card1);
   });
 
+  it('when a guess is made a new Turn instance is created and should return feedback whether the guess is incorrect or correct', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+
+    const deck = new Deck([card1, card2, card3]);
+
+    const round = new Round(deck);
+
+    round.returnCurrentCard();
+
+    expect(round.turns).to.equal(0);
+    expect(round.takeTurn('sea otter')).to.equal('correct!');
+    expect(round.takeTurn('pug')).to.equal('incorrect!');
+  });
+
+
 
 
 
