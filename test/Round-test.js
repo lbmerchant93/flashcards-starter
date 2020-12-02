@@ -5,13 +5,8 @@ const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
 
-let card1;
-let card2;
-let card3;
-let deck;
-let round;
-
 describe('Round', () => {
+  let card1, card2, card3, deck, round;
 
   beforeEach(() => {
     card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
@@ -35,7 +30,6 @@ describe('Round', () => {
   });
 
   it('when a guess is made a new Turn instance is created and should return feedback whether the guess is incorrect or correct', () => {
-    round.returnCurrentCard();
 
     expect(round.turns).to.equal(0);
     expect(round.takeTurn('sea otter')).to.equal('correct!');
@@ -43,7 +37,6 @@ describe('Round', () => {
   });
 
   it('when a turn is taken the turns count should increase by one whether it is correct or incorrect', () => {
-    round.returnCurrentCard();
 
     expect(round.turns).to.equal(0);
 
@@ -57,17 +50,14 @@ describe('Round', () => {
   });
 
   it('when a turn is taken the next card in the deck becomes the current card', () => {
-    round.returnCurrentCard();
 
     expect(round.returnCurrentCard()).to.equal(card1);
 
     round.takeTurn('sea otter');
-    round.returnCurrentCard();
 
     expect(round.returnCurrentCard()).to.equal(card2);
 
     round.takeTurn('spleen');
-    round.returnCurrentCard();
 
     expect(round.returnCurrentCard()).to.equal(card3);
   });
