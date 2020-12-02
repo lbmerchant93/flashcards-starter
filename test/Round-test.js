@@ -59,31 +59,27 @@ describe('Round', () => {
   it('when a turn is taken the next card in the deck becomes the current card', () => {
     round.returnCurrentCard();
 
-    expect(round.currentCard).to.equal(card1);
+    expect(round.returnCurrentCard()).to.equal(card1);
 
     round.takeTurn('sea otter');
     round.returnCurrentCard();
 
-    expect(round.currentCard).to.equal(card2);
+    expect(round.returnCurrentCard()).to.equal(card2);
 
     round.takeTurn('spleen');
     round.returnCurrentCard();
 
-    expect(round.currentCard).to.equal(card3);
+    expect(round.returnCurrentCard()).to.equal(card3);
   });
 
   it('if the guess is incorrect, it should be stored (via the id) in an array of incorrectGuesses', () => {
-    round.returnCurrentCard();
-
     expect(round.incorrectGuesses).to.have.lengthOf(0);
 
     round.takeTurn('pug');
-    round.returnCurrentCard();
 
     expect(round.incorrectGuesses).to.have.lengthOf(1);
 
     round.takeTurn('gallbladder');
-    round.returnCurrentCard();
 
     expect(round.incorrectGuesses).to.have.lengthOf(1);
 
@@ -93,18 +89,14 @@ describe('Round', () => {
   });
 
   it('should contain a method that calculates and returns the percentage of correct guesses', () => {
-    round.returnCurrentCard();
-
     expect(round.percentageCorrect).to.equal(0);
 
     round.takeTurn('sea otter');
-    round.returnCurrentCard();
     round.calculatePercentCorrect();
 
     expect(round.percentageCorrect).to.equal(100);
 
     round.takeTurn('spleen');
-    round.returnCurrentCard();
     round.calculatePercentCorrect();
 
     expect(round.percentageCorrect).to.equal(50);
@@ -116,11 +108,8 @@ describe('Round', () => {
   });
 
   it('should contain a method that prints \'**Round over!** You answered <>% of the questions correctly!\'', () => {
-    round.returnCurrentCard();
     round.takeTurn('sea otter');
-    round.returnCurrentCard();
     round.takeTurn('spleen');
-    round.returnCurrentCard();
     round.takeTurn('playing with bubble wrap');
     round.calculatePercentCorrect();
 
