@@ -6,6 +6,7 @@ class Round {
     this.currentCard;
     this.turns = 0;
     this.incorrectGuesses = [];
+    this.percentageCorrect = 0;
   };
   returnCurrentCard() {
     return this.currentCard = this.deck.cards[this.turns];
@@ -16,6 +17,9 @@ class Round {
     currentTurn.evaluateGuess() === false ? this.incorrectGuesses.push(this.currentCard.id) : this.incorrectGuesses;
     this.turns += 1;
     return currentTurn.giveFeedback();
+  };
+  calculatePercentCorrect() {
+    this.percentageCorrect = Math.floor(((this.turns - this.incorrectGuesses.length) /this.turns) * 100);
   };
 };
 
