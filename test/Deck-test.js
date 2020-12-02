@@ -4,7 +4,9 @@ const expect = chai.expect;
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 
-let card;
+let card1;
+let card2;
+let card3;
 let deck;
 
 describe('Deck', () => {

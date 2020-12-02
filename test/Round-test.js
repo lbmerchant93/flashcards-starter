@@ -5,7 +5,9 @@ const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
 
-let card;
+let card1;
+let card2;
+let card3;
 let deck;
 let round;
 
