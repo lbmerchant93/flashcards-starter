@@ -11,7 +11,7 @@ class Turn {
     return this.card;
   };
   evaluateGuess() {
-    return (this.guess === this.card.correctAnswer ? this.guessEvaluation = true : this.guessEvaluation = false);
+    return (this.guess === this.card.correctAnswer ? this.guessEvaluation = true : false);
   };
   giveFeedback() {
     return (this.guessEvaluation === true ? 'correct!' : 'incorrect!');
