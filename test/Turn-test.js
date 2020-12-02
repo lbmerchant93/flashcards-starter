@@ -6,13 +6,13 @@ const Turn = require('../src/Turn');
 
 describe('Turn', function() {
 
-  it('should be a function', function() {
+  it('should be a function', () => {
     const turn = new Turn();
 
     expect(Turn).to.be.a('function');
   });
 
-  it('should be an instance of Turn', function() {
+  it('should be an instance of Turn', () => {
     const turn = new Turn();
 
     expect(turn).to.be.an.instanceof(Turn);
@@ -25,7 +25,7 @@ describe('Turn', function() {
     expect(turn.returnGuess()).to.deep.equal('pug');
   });
 
-  it('should contain a method that will return a Card object for the current card in play', function() {
+  it('should contain a method that will return a Card object for the current card in play', () => {
     const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const turn = new Turn('pug', card);
 
@@ -37,14 +37,14 @@ describe('Turn', function() {
     });
   });
 
-  it('should contain a method that will compare the guess to correctAnswer and return whether they match or not', function() {
+  it('should contain a method that will compare the guess to correctAnswer and return whether they match or not', () => {
     const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const turn = new Turn('pug', card);
 
     expect(turn.evaluateGuess()).to.deep.equal(false);
   });
 
-  it('should contain a method that will return either \'incorrect!\' or \'correct!\' based on whether the guess is correct or not', function() {
+  it('should contain a method that will return either \'incorrect!\' or \'correct!\' based on whether the guess is correct or not', () => {
     const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const turn = new Turn('pug', card);
 

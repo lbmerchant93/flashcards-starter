@@ -2,7 +2,6 @@ const chai = require('chai');
 const expect = chai.expect;
 
 const Card = require('../src/Card');
-const Turn = require('../src/Turn');
 const Deck = require('../src/Deck');
 
 describe('Deck', function() {
@@ -26,7 +25,7 @@ describe('Deck', function() {
 
     const deck = new Deck([card1, card2, card3]);
 
-    expect(deck.cards).to.deep.equal([card1,card2, card3]);
+    expect(deck.cards).to.deep.equal([card1, card2, card3]);
   });
 
   it('should contain a method that will return how many Cards are in the Deck', function() {
@@ -37,6 +36,5 @@ describe('Deck', function() {
     const deck = new Deck([card1, card2, card3]);
 
     expect(deck.countCards()).to.deep.equal(3);
-  })
-
+  });
 });

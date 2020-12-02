@@ -132,18 +132,18 @@ describe('Round', function() {
 
     round.takeTurn('sea otter');
     round.returnCurrentCard();
-    round.calculatePercentCorrect()
+    round.calculatePercentCorrect();
 
     expect(round.percentageCorrect).to.equal(100);
 
     round.takeTurn('spleen');
     round.returnCurrentCard();
-    round.calculatePercentCorrect()
+    round.calculatePercentCorrect();
 
     expect(round.percentageCorrect).to.equal(50);
 
     round.takeTurn('playing with bubble wrap');
-    round.calculatePercentCorrect()
+    round.calculatePercentCorrect();
 
     expect(round.percentageCorrect).to.equal(66);
   });
@@ -166,5 +166,4 @@ describe('Round', function() {
 
     expect(round.endRound()).to.equal('**Round over!** You answered 66% of the questions correctly!');
   });
-
 });

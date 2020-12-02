@@ -11,18 +11,10 @@ class Turn {
     return this.card;
   };
   evaluateGuess() {
-    if(this.guess === this.card.correctAnswer) {
-      return this.guessEvaluation = true;
-    } else {
-      return this.guessEvaluation = false;
-    };
+    return (this.guess === this.card.correctAnswer ? this.guessEvaluation = true : this.guessEvaluation = false);
   };
   giveFeedback() {
-    if(this.guessEvaluation === true) {
-      return 'correct!'
-    } else {
-      return 'incorrect!'
-    };
+    return (this.guessEvaluation === true ? 'correct!' : 'incorrect!');
   };
 };
 
