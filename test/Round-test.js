@@ -49,7 +49,7 @@ describe('Round', function() {
     expect(round.takeTurn('pug')).to.equal('incorrect!');
   });
 
-  it('should contain a method that updates a turns count, regardless if correct or not', function() {
+  it('when a turn is taken the turns count should increase by one whether it is correct or incorrect', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
@@ -71,7 +71,29 @@ describe('Round', function() {
     expect(round.turns).to.equal(2);
   });
 
+  it('when a turn is taken the next card in the deck becomes the current card', function() {
+    const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
+    const card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
 
+    const deck = new Deck([card1, card2, card3]);
+
+    const round = new Round(deck);
+
+    round.returnCurrentCard();
+
+    expect(round.currentCard).to.equal(card1);
+
+    round.takeTurn('sea otter');
+    round.returnCurrentCard();
+
+    expect(round.currentCard).to.equal(card2);
+
+    round.takeTurn('spleen');
+    round.returnCurrentCard();
+
+    expect(round.currentCard).to.equal(card3);
+  });
 
 
 
