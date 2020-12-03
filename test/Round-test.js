@@ -96,13 +96,4 @@ describe('Round', () => {
 
     expect(round.percentageCorrect).to.equal(66);
   });
-
-  it('should contain a method that prints \'**Round over!** You answered <>% of the questions correctly!\'', () => {
-    round.takeTurn('sea otter');
-    round.takeTurn('spleen');
-    round.takeTurn('playing with bubble wrap');
-    round.calculatePercentCorrect();
-
-    expect(round.endRound()).to.equal('**Round over!** You answered 66% of the questions correctly!');
-  });
 });
