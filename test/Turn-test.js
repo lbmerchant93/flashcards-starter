@@ -8,8 +8,8 @@ describe('Turn', () => {
   let card, turn;
 
   beforeEach(() => {
-    card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    turn = new Turn('pug', card);
+    card = new Card(1, 'What is Lucas\'s dog\'s name?', ['Gri', 'Narara', 'Alvin'], 'Narara');
+    turn = new Turn('Gri', card);
   });
 
   it('should be a function', () => {
@@ -21,15 +21,15 @@ describe('Turn', () => {
   });
 
   it('should contain a method that will return a user\'s guess', () => {
-    expect(turn.returnGuess()).to.deep.equal('pug');
+    expect(turn.returnGuess()).to.deep.equal('Gri');
   });
 
   it('should contain a method that will return a Card object for the current card in play', () => {
     expect(turn.returnCard()).to.deep.equal({
       id: 1,
-      question: 'What is Robbie\'s favorite animal',
-      answers: ['sea otter', 'pug', 'capybara'],
-      correctAnswer: 'sea otter'
+      question: 'What is Lucas\'s dog\'s name?',
+      answers: ['Gri', 'Narara', 'Alvin'],
+      correctAnswer: 'Narara'
     });
   });
 
