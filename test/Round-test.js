@@ -79,21 +79,16 @@ describe('Round', () => {
   });
 
   it('should contain a method that calculates and returns the percentage of correct guesses', () => {
-    expect(round.percentageCorrect).to.equal(0);
-
     round.takeTurn('sea otter');
-    round.calculatePercentCorrect();
 
-    expect(round.percentageCorrect).to.equal(100);
+    expect(round.calculatePercentCorrect()).to.equal(100);
 
     round.takeTurn('spleen');
-    round.calculatePercentCorrect();
 
-    expect(round.percentageCorrect).to.equal(50);
+    expect(round.calculatePercentCorrect()).to.equal(50);
 
     round.takeTurn('playing with bubble wrap');
-    round.calculatePercentCorrect();
 
-    expect(round.percentageCorrect).to.equal(66);
+    expect(round.calculatePercentCorrect()).to.equal(66);
   });
 });

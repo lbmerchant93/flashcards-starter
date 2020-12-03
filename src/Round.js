@@ -5,7 +5,6 @@ class Round {
     this.deck = deck;
     this.turns = 0;
     this.incorrectGuesses = [];
-    this.percentageCorrect = 0;
   };
   returnCurrentCard() {
     return this.deck.cards[this.turns];
