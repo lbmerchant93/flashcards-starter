@@ -5,7 +5,7 @@ const Game = require('../src/Game');
 
 describe('Game', () => {
 
-  it('should keep track of the currentRound', () => {
+  it.skip('should keep track of the currentRound', () => {
     const game = new Game();
     game.start();
     expect(game.currentRound).to.be.an.instanceof(Round);
