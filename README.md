@@ -1,79 +1,56 @@
-# FlashCards Starter Kit
+# FlashCards
+> A [Front-End Project](https://github.com/lbmerchant93/flashcards-starter) by [Lucas Merchant](https://github.com/lbmerchant93)
+> * Project Managers [Travis Rollins](https://github.com/Kalikoze) & [David Whitaker](https://github.com/damwhit)
 
-## Fork This Repo
+## Abstract
+This is a solo project for Module 2 for the 2010 Front End Cohort, in which the students will write a program to simulate a set of flash cards through the command line. A user will be able to see the question, take guesses, and see a final score at the end of the round. Once completing all of the cards, users will see their score and the instructions to press 'control+c' to exit the game. Students must use their knowledge and understanding of JavaScript, TDD, ESLint and Node.js to demonstrate the [Project Goals](#project-goals).
 
-On the top right corner of this page, click the **Fork** button.
+### Project Goals
 
-## Setup
+Below are the learning goals taken from the project specs.
 
-Clone down the forked repo (from your GitHub). Since you don't want to name your project "flashcards-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
-
-```bash
-git clone [remote-address] [what you want to name the repo]
+``` Markdown
+- Contribute code to an partially constructed object-oriented application
+- Follow spec/prompts to make a working application
+- Implement ES6 classes
+- Write modular, reusable code that follows SRP (Single Responsibility Principle)
+- Implement a robust testing suite using TDD
 ```
 
-Once you have cloned the repo, change into the directory and install the library dependencies. Run:
+## Prerequisites
 
-```bash
-npm install
-```
+This project was developed on macOs Catalina 10.15.6 and is run through the Apple Terminal Version 2.10 (433).
 
-To verify that it is setup correctly, run `npm test` in your terminal. You should have 5 pending tests in your `Card` test file that show up.
+## Technologies
 
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
+- JavaScript
+- Node.js
+- Git
+- Github
+- ESLint
+- Apple Terminal
 
-```bash
-Node server running on port 3000
-```
+## Install/Setup
 
-*Note that you will not need to you run your server until you are instantiating your `Game` class in Iteration 3. Prior to that, you should be using TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
+Follow these steps for running and playing the game:
+- Fork/clone down this repo to make a local directory
+- Once cloned, move into the directory
+- In the directory, enter 'node index.js' into the command line
+- Have fun and play the game! (see [Game Play](#game-play) for how to play)
+
+## Game Play
+
+Starting the game will look like this:
+
+![Starting Game](https://media.giphy.com/media/HAO85XXZDJ4HlaPuuT/giphy.gif)
+
+In this gif you see that once you enter 'node index.js' into the terminal the welcome message appears and the game is started The first question also appears with the three possible answers you are to chose from. You may either press the corresponding number or key up/down to select the answer you choose. By pressing enter you submit your chosen answer. The game then evaluates your response and will return a statement of whether you were correct or incorrect. Pressing enter will bring up the next question. This is repeated until you have answered all of the questions.
+
+Once on the last question, the end game statement will show up along with the percentage of correctly guessed answers and how to exit the game. See the gif below:
+
+![Ending Game](https://media.giphy.com/media/yCCTKxTMyF3CrTKILV/giphy.gif)
 
 
-## Where to Add Your Code
-
-### JavaScript
-
-**Create all of your feature code files in the `src` directory.**
-
-We will be using the `module.exports` and `require` syntax to share code across files.
-
-## How to View Your Code in Action
-
-Once you are working through Iteration 3, you will want to start your server to test your functionality.
-In the terminal, run:
-
-```bash
-node index.js
-```
-
-When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
-
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `Round-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
----
-
-## Linting Your Code
-
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
-
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory. 
-
----
+## Challenges
+- Making sure to link the right files together in the right order.
+- Knowing when to test for something without being redundant.
