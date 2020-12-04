@@ -40,11 +40,13 @@ Follow these steps for running and playing the game:
 ## Game Play
 
 Starting the game will look like this:
+
 ![Starting Game](https://media.giphy.com/media/HAO85XXZDJ4HlaPuuT/giphy.gif)
 
 In this gif you see that once you enter 'node index.js' into the terminal the welcome message appears and the game is started The first question also appears with the three possible answers you are to chose from. You may either press the corresponding number or key up/down to select the answer you choose. By pressing enter you submit your chosen answer. The game then evaluates your response and will return a statement of whether you were correct or incorrect. Pressing enter will bring up the next question. This is repeated until you have answered all of the questions.
 
 Once on the last question, the end game statement will show up along with the percentage of correctly guessed answers and how to exit the game. See the gif below:
+
 ![Ending Game](https://media.giphy.com/media/yCCTKxTMyF3CrTKILV/giphy.gif)
 
 
