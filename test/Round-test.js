@@ -5,18 +5,13 @@ const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
 
-let card1;
-let card2;
-let card3;
-let deck;
-let round;
-
 describe('Round', () => {
+  let card1, card2, card3, deck, round;
 
   beforeEach(() => {
-    card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-    card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    card1 = new Card(1, 'What is Lucas\'s dog\'s name?', ['Gri', 'Narara', 'Alvin'], 'Narara');
+    card2 = new Card(2, 'What is Lucas\'s sprite animal?', ['wolf', 'tiger', 'stag'], 'wolf');
+    card3 = new Card(3, 'What is Lucas\'s favorite crystal?', ['amethyst', 'opal', 'smokey quartz'], 'smokey quartz');
     deck = new Deck([card1, card2, card3]);
     round = new Round(deck);
   });
@@ -35,39 +30,34 @@ describe('Round', () => {
   });
 
   it('when a guess is made a new Turn instance is created and should return feedback whether the guess is incorrect or correct', () => {
-    round.returnCurrentCard();
 
     expect(round.turns).to.equal(0);
-    expect(round.takeTurn('sea otter')).to.equal('correct!');
-    expect(round.takeTurn('pug')).to.equal('incorrect!');
+    expect(round.takeTurn('Narara')).to.equal('correct!');
+    expect(round.takeTurn('Gri')).to.equal('incorrect!');
   });
 
   it('when a turn is taken the turns count should increase by one whether it is correct or incorrect', () => {
-    round.returnCurrentCard();
 
     expect(round.turns).to.equal(0);
 
-    round.takeTurn('sea otter');
+    round.takeTurn('Narara');
 
     expect(round.turns).to.equal(1);
 
-    round.takeTurn('spleen');
+    round.takeTurn('wolf');
 
     expect(round.turns).to.equal(2);
   });
 
   it('when a turn is taken the next card in the deck becomes the current card', () => {
-    round.returnCurrentCard();
 
     expect(round.returnCurrentCard()).to.equal(card1);
 
-    round.takeTurn('sea otter');
-    round.returnCurrentCard();
+    round.takeTurn('Narara');
 
     expect(round.returnCurrentCard()).to.equal(card2);
 
-    round.takeTurn('spleen');
-    round.returnCurrentCard();
+    round.takeTurn('tiger');
 
     expect(round.returnCurrentCard()).to.equal(card3);
   });
@@ -75,44 +65,30 @@ describe('Round', () => {
   it('if the guess is incorrect, it should be stored (via the id) in an array of incorrectGuesses', () => {
     expect(round.incorrectGuesses).to.have.lengthOf(0);
 
-    round.takeTurn('pug');
+    round.takeTurn('Gri');
 
     expect(round.incorrectGuesses).to.have.lengthOf(1);
 
-    round.takeTurn('gallbladder');
+    round.takeTurn('wolf');
 
     expect(round.incorrectGuesses).to.have.lengthOf(1);
 
-    round.takeTurn('watching Netflix');
+    round.takeTurn('amethyst');
 
     expect(round.incorrectGuesses).to.have.lengthOf(2);
   });
 
   it('should contain a method that calculates and returns the percentage of correct guesses', () => {
-    expect(round.percentageCorrect).to.equal(0);
+    round.takeTurn('Narara');
 
-    round.takeTurn('sea otter');
-    round.calculatePercentCorrect();
+    expect(round.calculatePercentCorrect()).to.equal(100);
 
-    expect(round.percentageCorrect).to.equal(100);
+    round.takeTurn('tiger');
 
-    round.takeTurn('spleen');
-    round.calculatePercentCorrect();
+    expect(round.calculatePercentCorrect()).to.equal(50);
 
-    expect(round.percentageCorrect).to.equal(50);
+    round.takeTurn('smokey quartz');
 
-    round.takeTurn('playing with bubble wrap');
-    round.calculatePercentCorrect();
-
-    expect(round.percentageCorrect).to.equal(66);
-  });
-
-  it('should contain a method that prints \'**Round over!** You answered <>% of the questions correctly!\'', () => {
-    round.takeTurn('sea otter');
-    round.takeTurn('spleen');
-    round.takeTurn('playing with bubble wrap');
-    round.calculatePercentCorrect();
-
-    expect(round.endRound()).to.equal('**Round over!** You answered 66% of the questions correctly!');
+    expect(round.calculatePercentCorrect()).to.equal(66);
   });
 });
